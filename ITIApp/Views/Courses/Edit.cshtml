@@ -1,0 +1,49 @@
+﻿@model ITIApp.Models.Course
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CrsId" />
+            <div class="form-group">
+                <label asp-for="Crs_Name" class="control-label"></label>
+                <input asp-for="Crs_Name" class="form-control" />
+                <span asp-validation-for="Crs_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Crs_Description" class="control-label"></label>
+                <input asp-for="Crs_Description" class="form-control" />
+                <span asp-validation-for="Crs_Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lec_Hours" class="control-label"></label>
+                <input asp-for="Lec_Hours" class="form-control" />
+                <span asp-validation-for="Lec_Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lab_Hours" class="control-label"></label>
+                <input asp-for="Lab_Hours" class="form-control" />
+                <span asp-validation-for="Lab_Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

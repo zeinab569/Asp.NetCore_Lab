@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ITIApp.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <a asp-action="index" asp-controller="departments">Departments</a>
+    <a asp-action="index" asp-controller="students">Students</a>
+    <a asp-action="index" asp-controller="Courses">Courses</a>
+</div>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DepartmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepartmentId">Delete</a>|
+                <a asp-action="updateCourses" asp-route-id="@item.DepartmentId">CourseDept</a>|
+                <a asp-action="ShowAllCoueses" asp-route-id="@item.DepartmentId">Show All Courses</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

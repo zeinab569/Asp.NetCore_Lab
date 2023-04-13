@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "updateStudentDegree";
+}
+
+<h1>updateStudentDegree</h1>
+<div class="alert alert-heading">
+    Department @ViewBag.deps.DepartmentName
+    Courses    @ViewBag.crs.Crs_Name
+</div>
+<form method="post">
+<table>
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Student Degree</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in ViewBag.students)
+        {
+            <tr>
+                <td>@i.StudentName</td>
+                <td><input type="text" name="std.@i.Id"/></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="submit" value="add" />
+</form>

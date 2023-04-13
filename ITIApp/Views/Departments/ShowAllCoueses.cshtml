@@ -1,0 +1,53 @@
+﻿@model ITIApp.Models.Department
+
+@{
+    ViewData["Title"] = "ShowAllCoueses";
+}
+
+<h1>ShowAllCoueses</h1>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+    </dl>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>
+                CourseName
+            </th>
+            <th>updateStudetdegree</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model.Courses)
+        {
+            <tr>
+                <td>
+                    @i.Crs_Name
+                </td>
+                <td><a asp-action="updateStudentDegree" asp-route-deptid="@Model.DepartmentId" asp-route-crsid="@i.CrsId">updatestudentdegree</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
